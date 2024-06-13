@@ -1,0 +1,42 @@
+Basic Commands : 
+
+docker --version --> Check the version of docker 
+docker --help --> checking for help
+docker info --> fetching info
+docker -d --> starting docker 
+
+docker images --> List the images
+docker build -t <imageName> . --> Build an image
+docker build -t <imageName> . –no-cache --> Building an image without cache
+docker rmi <imageName> --> Remove image
+docker image prune --> Remove all unsued image
+docker image push <username:imageName: tag> --> Pushing an image
+
+docker login -u <username> --> Loging to docker hub
+docker pull <imageName>  --> Pull an image
+docker push <username>/<imageName> --> Pushing an image to docker hub.
+docker search <imageName> --> Searching an image
+
+docker container start <name/id> --> Staring a container
+docker container stop <name/id> --> Stoping a container
+docker container restart <name/id> --> Restarting a container
+docker container kill <name/id> --> Kill a container
+docker ps | docker ps -a --> Check containers
+docker ps --all --> List all running and stop containers
+docker container ls --> Check all running containers
+docker rm <name/id>  --> removing the container
+docker rm -f $(docker ps -a -q)  --> Kill an running container
+
+docker run --name <containerName> <imageName> --> Run a container from image
+docker run -p <host_port>:<containerPort> <imageName> -->  Run a container with publish port and host.
+docker run -d <image_name>  --> Run container in the background.
+
+docker exec -it <containerName> sh --> Open a bash shell inside a container
+docker logs -f <containerName> --> Check Logs
+docker inspect <containerName> (or <container_id>) --> Inspect a running container
+
+Here we run container named vespa via override the memory pulish to port alongwith host
+docker run -u root --detach --name vespa  -e VESPA_CONFIGSERVER_JVMARGS="-Xms2G -Xmx4G" --hostname vespa-tutorial --publish 8080:8080 --publish 19071:19071 --publish 19092:19092 vespaengine/vespa
+
+Source : https://docs.docker.com/get-started/docker_cheatsheet.pdf
+
