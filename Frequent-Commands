@@ -38,5 +38,12 @@ docker inspect <containerName> (or <container_id>) --> Inspect a running contain
 Here we run container named vespa via override the memory pulish to port alongwith host
 docker run -u root --detach --name vespa  -e VESPA_CONFIGSERVER_JVMARGS="-Xms2G -Xmx4G" --hostname vespa-tutorial --publish 8080:8080 --publish 19071:19071 --publish 19092:19092 vespaengine/vespa
 
+docker-compose -f docker-compose.yml up
+docker-compose -f docker-compose.yml down  
+
+docker exec -it 17a1a10b7c06 redis-cli --> Entering to Redis Cli from container screen
+docker buildx build  --builder nearbuilder --platform linux/amd64,linux/arm64  -t <repo>  . --push --> building a image and pushing to repo
+
+
 Source : https://docs.docker.com/get-started/docker_cheatsheet.pdf
 
